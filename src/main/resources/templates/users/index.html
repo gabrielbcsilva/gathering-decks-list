@@ -2,7 +2,7 @@
                 <div class="container-fluid">
 
                     
-                    <h1 class="h3 mb-2 text-gray-800" style="display: inline-block;">List of administrators</h1>
+                    <h1 class="h3 mb-2 text-gray-800" style="display: inline-block;">List of users</h1>
                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p>
@@ -11,7 +11,7 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                            <a href="/administrators/novo" class="btn btn-primary">Novo</a>
+                            <a href="/users/novo" class="btn btn-primary">Novo</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -37,14 +37,14 @@
                                         <th></th>
                                     </tfoot>
                                     <tbody>
-                                        <tr th:each="administrator : ${administrator}">
-                                            <td th:text="${administrator.id}"></td>
-                                            <td th:text="${administrator.nome}"></td>
-                                            <td th:text="${administrator.email}"></td>
+                                        <tr th:if="${user.id}!=${userId}" th:each="user : ${user}">
+                                            <td th:text="${user.id}"></td>
+                                            <td th:text="${user.name}"></td>
+                                            <td th:text="${user.email}"></td>
                                             
-                                            <td><a th:href="@{'/administrators/' + ${administrator.id}}" class="btn btn-warning">Alterar</a></td>
+                                            <td><a th:href="@{'/users/' + ${user.id}}" class="btn btn-warning">Alterar</a></td>
                                             <!-- th:onclick="'window.location.href = \'' + @{/deviceevent/list/{id}(id=${deviceEvent.id})} + '\''" -->
-                                            <td><a href="#" th:onclick="'if(confirm(\'Confirma?\')){window.location.href = \'' + @{/administrators/{id}(id=${administrator.id})} + '/excluir\'}'" class="btn btn-danger">Excluir</a></td>
+                                            <td><a href="#" th:onclick="'if(confirm(\'Confirma?\')){window.location.href = \'' + @{/users/{id}(id=${user.id})} + '/delete\'}'" class="btn btn-danger">Excluir</a></td>
                                         </tr>
                                      
                                     </tbody>

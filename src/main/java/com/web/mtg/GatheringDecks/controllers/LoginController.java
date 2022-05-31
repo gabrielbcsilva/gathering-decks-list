@@ -4,8 +4,8 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.mtg.GatheringDecks.models.Administrator;
-import com.web.mtg.GatheringDecks.repositories.AdministratorsRepo;
+import com.web.mtg.GatheringDecks.models.User;
+import com.web.mtg.GatheringDecks.repositories.UsersRepo;
 import com.web.mtg.GatheringDecks.services.CookieService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class LoginController {
     @Autowired
-    private AdministratorsRepo repo;
+    private UsersRepo repo;
    
    
     @GetMapping("/login")
@@ -27,11 +27,11 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String logar(Model model, Administrator p_adm,HttpServletResponse response ) throws IOException{
-       Administrator adm = this.repo.login(p_adm.getEmail(), p_adm.getSenha());
+    public String singIn(Model model, User p_adm,HttpServletResponse response ) throws IOException{
+       User adm = this.repo.login(p_adm.getEmail(), p_adm.getPassword());
        if(adm!=null){ 
         CookieService.setCookie(response,"userId",String.valueOf(adm.getId()),(60*60*24));   
-        CookieService.setCookie(response,"userName",String.valueOf(adm.getNome()),(60*60*24));   
+        CookieService.setCookie(response,"userName",String.valueOf(adm.getName()),(60*60*24));   
         return "redirect:/";
     }
        model.addAttribute("error", "Usuário ou senha inválidos");
