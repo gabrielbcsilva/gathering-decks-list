@@ -10,8 +10,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface CardRepo extends CrudRepository<Card,Integer>{
 
-    Optional<Card>[] findAllById(int id);
-
     @Query(value = "select * from tb_mtgcard where deck_id=:id", nativeQuery = true)
     public List<Card> findByDeck(int id);
 
