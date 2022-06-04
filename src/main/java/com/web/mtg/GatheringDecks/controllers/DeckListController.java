@@ -30,8 +30,6 @@ public class DeckListController {
     @Autowired
     private  UsersRepo repousu;
 
-    @Autowired
-    private CardRepo repocard;
 
 
 
