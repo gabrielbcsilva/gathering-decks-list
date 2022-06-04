@@ -57,7 +57,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 Clone este projeto ou baixe um novo projeto no site da Spring boot com JPA instalado.
 
-     1. Configure sua classe de Banco de dados o código fica em application.properties
+     1. Configure sua classe de Banco de dados, o código fica em application.properties. Deixei comentado um trecho para conexões locais.
 
      2. Execute o comando .\mvnw spring-boot:run -e no terminal no caso do Windows
      
