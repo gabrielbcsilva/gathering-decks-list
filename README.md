@@ -37,7 +37,7 @@
 ## :interrobang: Sobre
 
 Um _App_ que visa auxiliar jogadores do tão famoso Magic the Gathering a organizar seu Deck de cartas! Você poderá logar-se ver o deck de outros amigos e editar o seu, além de cadastrar novas cartas.
-[Acesse Aqui]([https://www.java.com/](https://gathering-deck-java.herokuapp.com/login)
+[Acesse Aqui](https://gathering-deck-java.herokuapp.com/login)
 <a id="tecnologias-utilizadas"></a>
 
 ## :diamonds: Tecnologias utilizadas
