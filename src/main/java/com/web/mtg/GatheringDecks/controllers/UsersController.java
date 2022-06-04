@@ -66,6 +66,6 @@ public class UsersController {
         } catch (Exception e) {
             return "redirect:/users";
         }
-        return "/users/atualizar";
+        return "users/atualizar";
     }
 }
