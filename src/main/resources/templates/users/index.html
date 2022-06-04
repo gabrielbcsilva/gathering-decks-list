@@ -43,7 +43,7 @@
                             <td th:text="${user.obs}"></td>
 
                             <td><a th:href="@{'/users/' + ${user.id}}" class="btn btn-warning">Alterar</a></td>
-                            <!-- th:onclick="'window.location.href = \'' + @{/deviceevent/list/{id}(id=${deviceEvent.id})} + '\''" -->
+                           
                             <td th:if="${user.id}!=${userId}"
                             ><a href="#"
                                     th:onclick="'if(confirm(\'Confirma?\')){window.location.href = \'' + @{/users/{id}(id=${user.id})} + '/delete\'}'"
