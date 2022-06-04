@@ -1,10 +1,14 @@
 package com.web.mtg.GatheringDecks.controllers;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.web.mtg.GatheringDecks.models.User;
 import com.web.mtg.GatheringDecks.repositories.UsersRepo;
+import com.web.mtg.GatheringDecks.services.CookieService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +23,9 @@ public class UsersController {
     private UsersRepo repo;
 
     @GetMapping("/users")
-    public String index(Model model) {
+    public String index(Model model,HttpServletRequest request) throws UnsupportedEncodingException {
+        model.addAttribute("userName",CookieService.getCookie(request, "userName"));
+        model.addAttribute("userId",CookieService.getCookie(request, "userId"));
         List<User> users = (List<User>) repo.findAll();
         model.addAttribute("user", users);
 

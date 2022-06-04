@@ -1,0 +1,63 @@
+<div th:replace="shared/header"></div>
+
+<div class="container-fluid">
+
+
+    <h1 class="h3 mb-2 text-gray-800" style="display: inline-block;">Deck de Cartas</h1>
+    <p class="mb-4">Utilize este espaço para organizar seu incrível Deck de cartas MTG.</p>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <div class="d-flex flex-row-reverse">
+                <a href="/decks/novo" class="btn btn-primary" style="margin-left: 10px;">Criar Deck</a>
+            </div>
+
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Criador</th>
+                            <th>Descricao</th>
+
+
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <th>Id</th>
+                        <th>Criador</th>
+                        <th>Descricao</th>
+
+                        <th></th>
+                        <th></th>
+                    </tfoot>
+                    <tbody>
+                        <tr th:each="decks : ${decks}">
+                            <td th:text="${decks.id}"></td>
+                            <td th:text=" ${decks.user.name}"></td>
+                            <td th:text="${decks.description}"></td>
+                            
+                            <td th:if="${decks.user.id}==${userId}">
+                                <a href="#"
+                                    th:onclick="'if(confirm(\'Confirma?\')){window.location.href = \'' + @{/deck/{id}(id=${decks.id})} + '/delete\'}'"
+                                    class="btn btn-danger">Excluir</a>
+                                </td>
+                                   
+                            <td th:if="${decks.user.id}==${userId}"> <a  th:href="@{'/cards/edit/' + ${decks.id}}" class="btn btn-success">Adicionar/Alterar</a ></td>
+                            <td> <a  th:href="@{'/decks/cards/view/' + ${decks.id}}"    class="btn btn-info">Vizualizar</a></td> 
+                  
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</div>
+<div th:replace="shared/footer"></div>

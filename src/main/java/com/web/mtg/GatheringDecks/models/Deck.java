@@ -1,72 +1,73 @@
-// package com.web.mtg.GatheringDecks.models;
+package com.web.mtg.GatheringDecks.models;
 
-// import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
-// @Entity
-// @Table(name = "tb_mtgdeck")
-// public class Deck {
-//     @Id
-//     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//     @Column(name = "id")
-//     private int id;
+import javax.persistence.*;
+
+import org.hibernate.annotations.Type;
+
+@Entity
+@Table(name = "tb_mtgdeck")
+public class Deck{
+    public Deck(){}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
     
-//     @Id
-//     @Column(name = "cardid", nullable = false)
-//     private int cardid;
+    @Column(name = "description")
+    @Type(type = "text")
+    private String description;
 
-//     @Id
-//     @Column(name = "userid", nullable = false)
-//     private int userid;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
-   
-//     public int getId() {
-//         return id;
-//     }
 
-//     public void setId(int id) {
-//         this.id = id;
-//     }
+    @OneToMany(mappedBy = "deck", fetch = FetchType.LAZY,
+    cascade = CascadeType.ALL)
+    private Set<Card> cards;
 
-//     public int getCardid() {
-//         return cardid;
-//     }
 
-//     public void setCardid(int cardid) {
-//         this.cardid = cardid;
-//     }
+    public int getId() {
+        return id;
+    }
 
-//     public int getUserid() {
-//         return userid;
-//     }
 
-//     public void setUserid(int userid) {
-//         this.userid = userid;
-//     }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-//     // public Card getCard() {
-//     //     return card;
-//     // }
 
-//     // public void setCard(Card card) {
-//     //     this.card = card;
-//     // }
+    public String getDescription() {
+        return description;
+    }
 
-//     // public User getUser() {
-//     //     return user;
-//     // }
 
-//     // public void setUser(User user) {
-//     //     this.user = user;
-//     // }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-//     // @OneToOne
-//     // @MapsId
-//     // @JoinColumn(name = "card_id")
-//     // private Card card;
- 
-//     // @OneToOne
-//     // @MapsId
-//     // @JoinColumn(name = "user_id")
-//     // private User user;
- 
-// }
+
+    public User getUser() {
+        return user;
+    }
+
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
+    public Set<Card> getCards() {
+        return cards;
+    }
+
+
+    public void setCards(Set<Card> cards) {
+        this.cards = cards;
+    }
+
+  
+}

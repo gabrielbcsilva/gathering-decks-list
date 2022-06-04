@@ -1,61 +1,65 @@
 <div th:replace="shared/header"></div>
-                <div class="container-fluid">
+<div class="container-fluid">
 
-                    
-                    <h1 class="h3 mb-2 text-gray-800" style="display: inline-block;">List of users</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
 
-                   
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                            <a href="/users/novo" class="btn btn-primary">Novo</a>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Observacao</th>
-                                             
-                                            <th></th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <th>Id</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Observacao</th>
-                                        
-                                        <th></th>
-                                        <th></th>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr th:if="${user.id}!=${userId}" th:each="user : ${user}">
-                                            <td th:text="${user.id}"></td>
-                                            <td th:text="${user.name}"></td>
-                                            <td th:text="${user.email}"></td>
-                                            
-                                            <td><a th:href="@{'/users/' + ${user.id}}" class="btn btn-warning">Alterar</a></td>
-                                            <!-- th:onclick="'window.location.href = \'' + @{/deviceevent/list/{id}(id=${deviceEvent.id})} + '\''" -->
-                                            <td><a href="#" th:onclick="'if(confirm(\'Confirma?\')){window.location.href = \'' + @{/users/{id}(id=${user.id})} + '/delete\'}'" class="btn btn-danger">Excluir</a></td>
-                                        </tr>
-                                     
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+    <h1 class="h3 mb-2 text-gray-800" style="display: inline-block;">Lista de Usuários</h1>
+    <p class="mb-4">Adiministração de usuários do sistema.</p>
 
-                </div>
-              
 
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <div class="d-flex flex-row">
+                <a href="/users/novo" class="btn btn-primary">Novo</a>
             </div>
-           
- <div th:replace="shared/footer"></div>  
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Observacao</th>
+
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Observacao</th>
+
+                        <th></th>
+                        <th></th>
+                    </tfoot>
+                    <tbody>
+                        <tr th:each="user : ${user}">
+                            <td th:text="${user.id}"></td>
+                            <td th:text="${user.name}"></td>
+                            <td th:text="${user.email}"></td>
+                            <td th:text="${user.obs}"></td>
+
+                            <td><a th:href="@{'/users/' + ${user.id}}" class="btn btn-warning">Alterar</a></td>
+                            <!-- th:onclick="'window.location.href = \'' + @{/deviceevent/list/{id}(id=${deviceEvent.id})} + '\''" -->
+                            <td th:if="${user.id}!=${userId}"
+                            ><a href="#"
+                                    th:onclick="'if(confirm(\'Confirma?\')){window.location.href = \'' + @{/users/{id}(id=${user.id})} + '/delete\'}'"
+                                    class="btn btn-danger">Excluir</a>
+                                </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</div>
+
+<div th:replace="shared/footer"></div>

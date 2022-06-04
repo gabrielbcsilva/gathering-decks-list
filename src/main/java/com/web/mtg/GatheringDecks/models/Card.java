@@ -30,6 +30,18 @@ public class Card {
     @Column(name = "amounts", length = 100, nullable = false)
     private String amounts;
 
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="deck_id")
+     private Deck deck;
+
+       public Deck getDeck() {
+        return deck;
+    }
+
+    public void setDeck(Deck deck) {
+        this.deck = deck;
+    }
+
     public int getId() {
         return id;
     }

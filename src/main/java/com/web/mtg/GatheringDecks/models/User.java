@@ -1,5 +1,7 @@
 package com.web.mtg.GatheringDecks.models;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 import org.hibernate.annotations.Type;
@@ -25,6 +27,10 @@ public class User {
     @Type(type = "text")
     private String obs;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
+    cascade = CascadeType.ALL)
+    private Set<Deck> decks;
+
     public int getId() {
         return id;
     }
@@ -32,7 +38,6 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
-
 
     public String getName() {
         return name;
@@ -66,16 +71,16 @@ public class User {
         this.obs = obs;
     }
 
-    // public Deck getDeck() {
-    //     return deck;
-    // }
+    public Set<Deck> getDecks() {
+        return decks;
+    }
 
-    // public void setDeck(Deck deck) {
-    //     this.deck = deck;
-    // }
+    public void setDecks(Set<Deck> decks) {
+        this.decks = decks;
+    }
+  
+   
 
-    // @OneToOne(mappedBy = "id", cascade = CascadeType.ALL)
-    // @PrimaryKeyJoinColumn
-    // private Deck deck;
+
 
 }

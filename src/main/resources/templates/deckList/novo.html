@@ -1,0 +1,25 @@
+<div th:replace="shared/header"></div>
+                <div class="container-fluid">
+
+                    
+                    <h1 class="h3 mb-2 text-gray-800" style="display: inline-block;">Novo Deck</h1>
+                    <p class="mb-4">Dê uma boa descrição para este novo deck</p>
+
+                   
+                 <div class="card shadow mb-4" style="padding: 30px">
+                  
+                    <form method="POST" action ="/deck/create" onsubmit="return confirm('Confirma ação?')">
+                        <div class="form-group">
+                          <label for="description">Descricao</label>
+                          <input type="text"  required class="form-control" id="description" name="description"  >
+                          <small id="description" class="form-text text-muted">Descricao</small>
+                        </div>                  
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                      </form>
+
+                </div>
+              
+
+            </div>
+           
+ <div th:replace="shared/footer"></div>  

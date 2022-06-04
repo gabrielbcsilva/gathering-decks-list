@@ -1,0 +1,64 @@
+<div th:replace="shared/header"></div>
+                <div class="container-fluid">
+
+                    
+                    <h1 class="h3 mb-2 text-gray-800" style="display: inline-block;">Adicione uma nova carta para utilização</h1>
+                    <p class="mb-4">Seja criativo</p>
+
+                   
+                 <div class="card shadow mb-4" style="padding: 30px">
+                  
+                                
+                  <form method="POST" action ="/cards/generate" onsubmit="return confirm('Confirma ação?')">
+                    
+                    <div class="form-group">
+                      <label for="name">Nome da Carta</label>
+                      <input type="text"  required class="form-control" id="name" name="name"  >
+                      <small id="nomeHelp" class="form-text text-muted">Seu nome</small>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="name">Idioma</label>
+                      <input type="text"  required class="form-control" id="language" name="language"  >
+                      <small id="nomeHelp" class="form-text text-muted">PT-BR/EN/FR...</small>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="name">Edição</label>
+                      <input type="text"  required class="form-control" id="edition" name="edition"  >
+                      <small id="nomeHelp" class="form-text text-muted">PT-BR/EN/FR...</small>
+                    </div>
+
+
+                    <div class="form-group">
+                      <label for="price">Valor</label>
+                      <input type="number"  required class="form-control" id="price" name="price"  >
+                      <small id="nomeHelp" class="form-text text-muted">1.0</small>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="foil">Laminada</label>
+                      <select id="foil" name="foil">
+                        <option th:value="S" th:text="Sim" >
+                        <option th:value="N" th:text="Não" >
+                     </select>
+                      <small id="nomeHelp" class="form-text text-muted">Característica especial</small>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="price">Quantidade</label>
+                      <input type="number"  required class="form-control" id="amounts" name="amounts"  >
+                      <small id="nomeHelp" class="form-text text-muted">Qnt de cartas</small>
+                    </div>
+                    
+                   
+                    
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                  </form>
+
+                </div>
+              
+
+            </div>
+           
+ <div th:replace="shared/footer"></div>  

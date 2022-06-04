@@ -1,0 +1,78 @@
+<div th:replace="shared/header"></div>
+
+<div class="container-fluid">
+
+
+    <h1 class="h3 mb-2 text-gray-800" style="display: inline-block;">Deck de Cartas</h1>
+    <p class="mb-4">Utilize este espaço para organizar seu incrível Deck de cartas MTG.</p>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <div class="d-flex flex-row-reverse">
+                <a href="/decks" class="btn btn-dark" style="margin-left: 10px;">Voltar</a>
+                <a th:href="@{'/decks/cards/new/' + ${deck.id}}" class="btn btn-primary" style="margin-left: 10px;">Nova Carta</a>
+
+            </div>
+
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Edição</th>
+                            <th>Idioma</th>
+                            <th>Laminada</th>
+                            <th>Preço</th>
+                            <th>Quantidade</th>
+
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Edição</th>
+                        <th>Idioma</th>
+                        <th>Laminada</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+
+                        <th></th>
+                        <th></th>
+                    </tfoot>
+                    <tbody>
+                        <tr th:each="card : ${cards}">
+                            <td th:text="${card.id}"></td>
+                            <td th:text="${card.name}"></td>
+                            <td th:text="${card.edition}"></td>
+                            <td th:text="${card.language}"></td>
+                            <td th:text="${card.foil}"></td>
+                            <td th:text="${card.price}"></td>
+                            <td th:text="${card.amounts}"></td>
+                                
+                            <td>
+                                <a href="#"
+                                    th:onclick="'if(confirm(\'Confirma?\')){window.location.href = \'' + @{/decks/cards/{id}(id=${card.id})} + '/delete\'}'"
+                                    class="btn btn-danger">Excluir</a>
+                                </td>
+                                   
+                      
+                        
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+</div>
+<div th:replace="shared/footer"></div>

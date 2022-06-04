@@ -1,0 +1,34 @@
+<div th:replace="shared/header"></div>
+<div class="container-fluid">
+
+
+  <h1 class="h3 mb-2 text-gray-800" style="display: inline-block;">Adicionar Carta</h1>
+  <p class="mb-4">Escolha as Cartas Disponíveis e monte seu poderoso Deck</p>
+
+
+  <div class="card shadow mb-4" style="padding: 30px">
+    <form method="POST" th:action="@{/card/create/{id}(id=${deck.id})}"
+      onsubmit="return confirm('Confirma ação?')">
+
+
+      <div class="form-group">
+
+        <label for="exampleDataList" class="form-label">Cartas Cadastradas</label>
+        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+        <datalist id="datalistOptions">
+          <select id="id" name="id">
+             <option  th:each="card : ${cards}" th:value="${card.id}" th:text="${card.name}" >
+          </select>
+        </datalist>
+        <!-- {cardid}(cardid=${card.id})}/{deckid}(deckid=${deck.id}) -->
+      </div>
+      <!-- <a  class="btn btn-primary" href="" th:href="@{/card/create2}"></a> -->
+      <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+
+  </div>
+
+
+</div>
+
+<div th:replace="shared/footer"></div>
