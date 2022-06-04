@@ -6,10 +6,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.web.mtg.GatheringDecks.services.CookieService;
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
+@ComponentScan(basePackages = {"com.web.mtg.GatheringDecks"})
 @Controller
 public class HomeController {
     @GetMapping("/")

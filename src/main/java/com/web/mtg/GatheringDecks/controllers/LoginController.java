@@ -7,13 +7,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.web.mtg.GatheringDecks.models.User;
 import com.web.mtg.GatheringDecks.repositories.UsersRepo;
 import com.web.mtg.GatheringDecks.services.CookieService;
-
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
+@ComponentScan(basePackages = {"com.web.mtg.GatheringDecks"})
 @Controller
 public class LoginController {
     @Autowired
