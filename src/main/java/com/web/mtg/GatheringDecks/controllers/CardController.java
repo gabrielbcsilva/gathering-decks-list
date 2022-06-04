@@ -32,10 +32,10 @@ import org.springframework.web.client.RestTemplate;
 
 @Controller
 public class CardController {
-    @Autowired
+    @Autowired(required = true)
     private CardRepo repo;
 
-    @Autowired
+    @Autowired(required = true)
     private DeckRepo repoDeck;
 
     @GetMapping("/decks/cards/new/{id}")

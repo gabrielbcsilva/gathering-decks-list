@@ -24,10 +24,10 @@ import org.springframework.web.client.RestTemplate;
 
 @Controller
 public class DeckListController {
-    @Autowired
+    @Autowired(required = true)
     private DeckRepo repo;
 
-    @Autowired
+    @Autowired(required = true)
     private  UsersRepo repousu;
 
 

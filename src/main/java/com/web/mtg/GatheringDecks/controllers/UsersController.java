@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UsersController {
-    @Autowired
+    @Autowired(required = true)
     private UsersRepo repo;
 
     @GetMapping("/users")

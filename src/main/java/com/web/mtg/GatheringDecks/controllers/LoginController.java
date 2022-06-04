@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @ComponentScan(basePackages = {"com.web.mtg.GatheringDecks"})
 @Controller
 public class LoginController {
-    @Autowired
+    @Autowired(required = true)
     private UsersRepo repo;
    
    
