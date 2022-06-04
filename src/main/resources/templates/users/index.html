@@ -41,8 +41,8 @@
                             <td th:text="${user.name}"></td>
                             <td th:text="${user.email}"></td>
                             <td th:text="${user.obs}"></td>
-
-                            <td><a th:href="@{'/users/' + ${user.id}}" class="btn btn-warning">Alterar</a></td>
+                            <!-- th:href="@{'/users/' + ${user.id}}" -->
+                            <td><a th:href="@{|/users/${user.id}|}"  class="btn btn-warning">Alterar</a></td>
                            
                             <td th:if="${user.id}!=${userId}"
                             ><a href="#"
