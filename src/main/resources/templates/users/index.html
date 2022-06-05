@@ -42,7 +42,7 @@
                             <td th:text="${user.email}"></td>
                             <td th:text="${user.obs}"></td>
                             <!-- th:href="@{'/users/' + ${user.id}}" -->
-                            <td><a th:href="@{|/users/${user.id}|}"  class="btn btn-warning">Alterar</a></td>
+                            <td th:if="${user.id}!=4"><a th:href="@{|/users/${user.id}|}"  class="btn btn-warning">Alterar</a></td>
                            
                             <td th:if="${user.id}!=${userId} and ${user.id}!=4"
                             ><a href="#"
