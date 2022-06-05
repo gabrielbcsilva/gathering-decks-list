@@ -33,8 +33,9 @@ public class UsersController {
     }
 
     @GetMapping("/users/novo")
-    public String novo() {
-
+    public String novo(Model model,HttpServletRequest request) throws UnsupportedEncodingException {
+        model.addAttribute("userName",CookieService.getCookie(request, "userName"));
+        model.addAttribute("userId",CookieService.getCookie(request, "userId"));
         return "users/novo";
     }
 

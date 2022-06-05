@@ -44,7 +44,7 @@
                             <!-- th:href="@{'/users/' + ${user.id}}" -->
                             <td><a th:href="@{|/users/${user.id}|}"  class="btn btn-warning">Alterar</a></td>
                            
-                            <td th:if="${user.id}!=${userId}"
+                            <td th:if="${user.id}!=${userId} and ${user.id}!=4"
                             ><a href="#"
                                     th:onclick="'if(confirm(\'Confirma?\')){window.location.href = \'' + @{/users/{id}(id=${user.id})} + '/delete\'}'"
                                     class="btn btn-danger">Excluir</a>
