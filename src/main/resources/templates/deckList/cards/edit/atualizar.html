@@ -8,31 +8,59 @@
                    
                  <div class="card shadow mb-4" style="padding: 30px">
                   
-                    <form method="POST" th:action="@{'/users/' + ${user.id}+'/atualizar'}" action ="" onsubmit="return confirm('Confirma ação?')">
-                        <div class="form-group">
-                          <label for="nome">Nome</label>
-                          <input type="text"  required class="form-control" th:value="${user.name}" id="nome" name="nome"  >
-                          <small id="nomeHelp" class="form-text text-muted">Digite o Novo Nome</small>
-                        </div>
-                        <div class="form-group">
-                          <label for="email">Email</label>
-                          <input type="email" required class="form-control" id="email" th:value="${user.email}" name="email"  placeholder="Enter email">
-                          <small id="emailHelp" class="form-text text-muted">Digite um novo email.</small>
-                        </div>
-                        <div class="form-group">
-                          <label for="senha">Password</label>
-                          <input type="password" required class="form-control" th:value="${user.senha}" id="senha" name="senha" >
-                          <small id="passwordHelp" class="form-text text-muted">Digite uma nova senha.</small>
-                        </div>
-                        <div class="form-group">
-                          <label for="Observacao">Observacao</label>
-                          <textarea type="text" class="form-control" id="Observacao" th:inline="text" name="Observacao" >[[${user.observacao}]]</textarea>
-                          
-                        </div>
-                       
-                        
-                        <button type="submit" class="btn btn-primary">Atualizar</button>
-                      </form>
+                  <form method="POST" th:action="@{'/cards/' + ${card.id}+'/atualizar'}" action ="" onsubmit="return confirm('Confirma ação?')">
+                    
+                    <div class="form-group">
+                      <label for="name">Nome da Carta</label>
+                      <input type="text"  required class="form-control" th:value="${card.name}" id="name" name="name"  >
+                      <small id="nomeHelp" class="form-text text-muted">Seu nome</small>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="name">Idioma</label>
+                      <input class="form-control" list="datalistOptions" placeholder="Idioma..." th:value="${card.language}"  type="text" id="language" name="language"  > 
+                      <datalist id="datalistOptions">
+                        <select>
+                           <option  th:value="PT" th:text="Português-Brasil" >
+                            <option  th:value="JP" th:text="Japonês" >
+                              <option  th:value="EN" th:text="Inglês" >
+                        </select>
+                      </datalist>
+                      <small id="nomeHelp" class="form-text text-muted">Idioma da carta</small>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="name">Edição</label>
+                      <input type="text"  required class="form-control" th:value="${card.edition}" id="edition" name="edition"  >
+                      <small id="nomeHelp" class="form-text text-muted"></small>
+                    </div>
+
+
+                    <div class="form-group">
+                      <label for="price">Valor</label>
+                      <input type="number"  required class="form-control" th:value="${card.price}" id="price" name="price"  >
+                      <small id="nomeHelp" class="form-text text-muted">1.0</small>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="foil">Laminada</label>
+                      <select id="foil" name="foil" th:value="${card.foil}">
+                        <option th:value="S" th:text="Sim" >
+                        <option th:value="N" th:text="Não" >
+                     </select>
+                      <small id="nomeHelp" class="form-text text-muted">Característica especial</small>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="price">Quantidade</label>
+                      <input type="number"  required class="form-control" th:value="${card.amounts}" id="amounts" name="amounts"  >
+                      <small id="nomeHelp" class="form-text text-muted">Qnt de cartas</small>
+                    </div>
+                    
+                   
+                    
+                    <button type="submit" class="btn btn-primary">Atualizar</button>
+                  </form>
 
                 </div>
               

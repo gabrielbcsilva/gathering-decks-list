@@ -151,4 +151,27 @@ public class CardController {
     
         return "redirect:/cards/generate/index";
     }
+
+    @PostMapping("/cards/{id}/atualizar")
+    public String atualizar(@PathVariable int id, Card card) {
+        if (!repo.exist(id))
+            return "redirect:/decks";
+           
+            Optional<Deck> deck = repoDeck.findById(repo.findDeckId(id)); 
+           
+               card.setDeck(deck.get());
+        repo.save(card);
+        return "redirect:/decks";
+    }
+
+    @GetMapping("/cards/{id}")
+    public String buscar(@PathVariable int id, Model model) {
+        Optional<Card> adm = repo.findById(id);
+        try {
+            model.addAttribute("card", adm.get());
+        } catch (Exception e) {
+            return "redirect:/decks";
+        }
+        return "deckList/cards/edit/atualizar";
+    }
 }

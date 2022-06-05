@@ -20,9 +20,7 @@
              <option  th:each="card : ${cards}" th:value="${card.id}" th:text="${card.name}" >
           </select>
         </datalist>
-        <!-- {cardid}(cardid=${card.id})}/{deckid}(deckid=${deck.id}) -->
       </div>
-      <!-- <a  class="btn btn-primary" href="" th:href="@{/card/create2}"></a> -->
       <button type="submit" class="btn btn-primary">Salvar</button>
     </form>
 

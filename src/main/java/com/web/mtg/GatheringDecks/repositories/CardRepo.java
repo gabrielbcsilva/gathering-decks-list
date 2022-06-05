@@ -15,5 +15,8 @@ public interface CardRepo extends CrudRepository<Card,Integer>{
 
     @Query(value = "select deck_id from tb_mtgcard where id=:id", nativeQuery = true)
     public int findDeckId(int id);
+
+    @Query(value = "select CASE WHEN COUNT(1)> 0 THEN 'true' ELSE 'false' END from tb_mtgcard where id=:id", nativeQuery = true)
+    public boolean exist(int id);
    
 }

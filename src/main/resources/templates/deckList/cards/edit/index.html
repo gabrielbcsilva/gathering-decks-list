@@ -52,7 +52,9 @@
                             <td th:text="${card.foil}"></td>
                             <td th:text="${card.price}"></td>
                             <td th:text="${card.amounts}"></td>
-                                
+                            
+                            
+                            <td><a th:href="@{|/cards/${card.id}|}"  class="btn btn-warning">Alterar</a></td>     
                             <td>
                                 <a href="#"
                                     th:onclick="'if(confirm(\'Confirma?\')){window.location.href = \'' + @{/decks/cards/{id}(id=${card.id})} + '/delete\'}'"
