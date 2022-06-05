@@ -14,7 +14,7 @@
       <div class="form-group">
 
         <label for="exampleDataList" class="form-label">Cartas Cadastradas</label>
-        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Escolha uma carta...">
         <datalist id="datalistOptions">
           <select id="id" name="id">
              <option  th:each="card : ${cards}" th:value="${card.id}" th:text="${card.name}" >

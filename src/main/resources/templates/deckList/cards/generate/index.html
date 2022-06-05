@@ -19,8 +19,15 @@
                     
                     <div class="form-group">
                       <label for="name">Idioma</label>
-                      <input type="text"  required class="form-control" id="language" name="language"  >
-                      <small id="nomeHelp" class="form-text text-muted">PT-BR/EN/FR...</small>
+                      <input class="form-control" list="datalistOptions" placeholder="Idioma..."  type="text" id="language" name="language"  > 
+                      <datalist id="datalistOptions">
+                        <select>
+                           <option  th:value="PT" th:text="Português-Brasil" >
+                            <option  th:value="JP" th:text="Japonês" >
+                              <option  th:value="EN" th:text="Inglês" >
+                        </select>
+                      </datalist>
+                      <small id="nomeHelp" class="form-text text-muted">Idioma da carta</small>
                     </div>
 
                     <div class="form-group">
