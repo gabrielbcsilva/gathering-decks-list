@@ -97,7 +97,7 @@ Essa é a tela inicial:
 <img alt="deck" width="400px" src="./src/main/resources/static/img/deckmanager.png">
 
 **Tela 5**: Nova Carta para mandar para API
-Não foi implementado mensagem de sucesso, porém poderá ser verificado na montagem do deck essa nova carta. Essa tela envia direto para API externa também hospedada na Heroku
+ Essa tela envia direto para API externa também hospedada na Heroku
 
 <img alt="card" width="400px" src="./src/main/resources/static/img/novacarta.png">
 
